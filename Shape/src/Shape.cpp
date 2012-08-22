@@ -148,7 +148,7 @@ int main(int argc, char** argv) {
     cv::Mat mag;
     cv::Mat magI,imagI;
     cv::Mat complexI;
-
+    cv::Mat cropped;
     ofstream myfile;
 
 	CvFont font;
@@ -254,13 +254,17 @@ int main(int argc, char** argv) {
 				//string s = typeid(magI.at<float>(0)).name();
 
 				normalized=((magI*inv)*1000.0);
+
 				double* arreglo3=(double*)normalized.data;
-				double* visualize=(double*)magI.data;
+
+				//Cortamos el tamano del cv::Mat para tener N/2 muestras puesto que el input son valores reales
 
 
-				for(int count=0;count<magI.rows;count++){
 
-		    			fprintf(fp,"%.6f,",visualize[count]);
+
+				for(int count=0;count<normalized.rows/2;count++){
+
+		    			fprintf(fp,"%.6f,",arreglo3[count]);
 
 				}
 				fprintf(fp,"\n");
@@ -319,8 +323,7 @@ int main(int argc, char** argv) {
         cvShowImage("Example2", frameImg);
         cvShowImage("Little", dst2);
         //cvShowImage("Inverse", matras);
-    	imshow("Visualize",magI);
-        cvWaitKey(2);
+    	cvWaitKey(2);
 
     }
 
