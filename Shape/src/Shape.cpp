@@ -8,12 +8,9 @@
 /*#include <opencv2/opencv.hpp>*/
 #include <opencv.hpp>
 #include <list>
-#include <boost/numeric/ublas/matrix.hpp>
-#include <boost/numeric/ublas/vector.hpp>
-#include <boost/numeric/ublas/io.hpp>
-#include"storage_adaptors.hpp"
+
 using namespace std;
-using namespace boost::numeric::ublas;
+
 #include <fstream>
 //includes del JNI
 #include <jni.h>
@@ -90,7 +87,7 @@ int main(int argc, char** argv) {
 	    		    if(cls2 !=0){
 
 	    		    ide=env->GetStaticMethodID(cls2,"loadmodel","(Ljava/lang/String;)I");
-	    			jstring cadena=	env->NewStringUTF("/home/bguaman/weka-3-6-6/modelofinal.model");
+	    			jstring cadena=	env->NewStringUTF("/home/bguaman/weka-3-6-6/halffourier.model");
 	    			jint resul =env->CallStaticIntMethod(cls2,ide,cadena);
 	    			//cout<<"cargo:"<<resul<<endl;
 	    			ide2=env->GetStaticMethodID(cls2,"classify","([D)I");
@@ -148,12 +145,12 @@ int main(int argc, char** argv) {
     cv::Mat mag;
     cv::Mat magI,imagI;
     cv::Mat complexI;
-    cv::Mat cropped;
+
     ofstream myfile;
 
 	CvFont font;
     cvInitFont(&font, CV_FONT_HERSHEY_SIMPLEX, 0.5, 0.5);
-    FILE * fp = fopen("./CSV/pruebaa.csv", "w");
+    //FILE * fp = fopen("./CSV/cuadradocomparacion3.csv", "w");
    // FILE * fp = fopen("./CSV/datos.txt", "w");
 
     /* Loop until frame ended or ESC is pressed */
@@ -171,8 +168,8 @@ int main(int argc, char** argv) {
 
          //contourOutput= cvCloneImage(gray);
         //cv::Mat contourOutput(gray);
-		graymat4bound=cv::Mat(gray,1);
-        graymat4draw=cv::Mat(frameImg);
+		graymat4bound=cv::Mat(gray,1);//hacemos una copia de los datos de la imagen
+        graymat4draw=cv::Mat(frameImg);//apuntamos a los datos , no copiamos
         cv::findContours( graymat4bound, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE );
 
 
@@ -197,9 +194,9 @@ int main(int argc, char** argv) {
 
             CvRect rect =cv::boundingRect(mattemp);
 
-    		cvGetSubRect(gray,&dst_mat,rect);
+    		cvGetSubRect(gray,&dst_mat,rect);//obtenemos un ROI
 
-    		cv::rectangle(graymat4draw,rect,cv::Scalar(255));
+    		cv::rectangle(graymat4draw,rect,cv::Scalar(255)); // rectangulo dibujado alrededor ede la forma
 
 
 
@@ -209,6 +206,7 @@ int main(int argc, char** argv) {
             cvCanny(dst, dst2, 70, 140);
 
             promed=MaptoPolarAvgMem(dst2);
+
             aux=cv::Mat(promed);
 
 
@@ -250,10 +248,11 @@ int main(int argc, char** argv) {
                 //slice=magI.rowRange(0,29);
 
                 double first=magI.at<double>(0);
-				double inv=1/first;
-				//string s = typeid(magI.at<float>(0)).name();
 
-				normalized=((magI*inv)*1000.0);
+                double inv=1/first;
+				//string s = typeid(magI.at<float>(0)).name();
+                cv ::Mat cropped=magI.rowRange(1,31);
+				normalized=((cropped*inv)*1000.0);
 
 				double* arreglo3=(double*)normalized.data;
 
@@ -262,21 +261,20 @@ int main(int argc, char** argv) {
 
 
 
-				for(int count=0;count<normalized.rows/2;count++){
+				/*for(int count=1;count<(normalized.rows/2)+1;count++){
 
 		    			fprintf(fp,"%.6f,",arreglo3[count]);
 
 				}
-				fprintf(fp,"\n");
-
+				fprintf(fp,"cuadrado\n");
+*/
 
     		  if(jvmok !=false){
 
     		    	jdoubleArray arreglo=env->NewDoubleArray(30);
 
 
-    		    		    			//double arreglo2 []= {1000.000000,16.446404,3.729186,2.771154,17.800634,33.837307,10.238957,2.233379,1.377190,3.409533,6.067201,1.782658,1.118950,0.948547,2.728277,1.183576,1.976642,1.173565,0.271126,1.756574,0.323660,1.086649,0.466114,0.493768,0.694117,0.384536,0.624780,0.392404,0.267215,0.661685};
-    		    		    			env->SetDoubleArrayRegion( arreglo, 0, 30, &arreglo3[0] );
+    		    		    			env->SetDoubleArrayRegion( arreglo,0, 30, &arreglo3[0] );
     		    		    			resultado=env->CallStaticIntMethod(cls2,ide2,arreglo);
 
     		    		    			//std::cout<<"Resultado:"<<resultado<<std::endl;
@@ -321,7 +319,7 @@ int main(int argc, char** argv) {
 
         /* display frame into window */
         cvShowImage("Example2", frameImg);
-        cvShowImage("Little", dst2);
+    //    cvShowImage("Little", dst2);
         //cvShowImage("Inverse", matras);
     	cvWaitKey(2);
 
