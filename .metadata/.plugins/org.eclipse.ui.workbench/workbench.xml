@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="21" version="2.0">
 <workbenchAdvisor/>
-<window height="739" maximized="true" width="1018" x="241" y="59">
+<window height="980" width="1345" x="240" y="59">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -29,17 +29,22 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="Shape.cpp" partName="Shape.cpp" path="/home/bguaman/workspace/Investigacion/ShapeRecopgnizerC/Shape/src/Shape.cpp" title="Shape.cpp" tooltip="Shape/src/Shape.cpp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Shape/src/Shape.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6914" selectionTopPixel="4303"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1185" selectionTopPixel="905"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="storage_adaptors.hpp" partName="storage_adaptors.hpp" path="/home/bguaman/workspace/Investigacion/ShapeRecopgnizerC/Shape/src/storage_adaptors.hpp" title="storage_adaptors.hpp" tooltip="Shape/src/storage_adaptors.hpp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Shape/src/storage_adaptors.hpp"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Visualize.cpp" partName="Visualize.cpp" path="/home/bguaman/workspace/Investigacion/ShapeRecopgnizerC/Shape/src/Visualize.cpp" title="Visualize.cpp" tooltip="Shape/src/Visualize.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Shape/src/Visualize.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -47,6 +52,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
+<category IMemento.internal.id="Errors"/>
 <category IMemento.internal.id="Warnings"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
@@ -213,6 +219,7 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Shape/src/Shape.cpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Shape/src/storage_adaptors.hpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Shape/src/Visualize.cpp"/>
 </editors>
 <item historyLabel="Shape.cpp" index="0">
 <position info="not_deleted" x="0" y="0"/>
@@ -220,8 +227,56 @@
 <item historyLabel="storage_adaptors.hpp" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="Shape.cpp" index="0">
+<item historyLabel="Shape.cpp" index="0">
 <position/>
+</item>
+<item historyLabel="Shape.cpp" index="0">
+<position info="not_deleted" x="1251" y="0"/>
+</item>
+<item historyLabel="Visualize.cpp" index="2">
+<position info="not_deleted" x="1" y="0"/>
+</item>
+<item historyLabel="Shape.cpp" index="0">
+<position info="not_deleted" x="0" y="8418"/>
+</item>
+<item historyLabel="Visualize.cpp" index="2">
+<position info="not_deleted" x="1" y="0"/>
+</item>
+<item historyLabel="Visualize.cpp" index="2">
+<position info="not_deleted" x="396" y="0"/>
+</item>
+<item historyLabel="Shape.cpp" index="0">
+<position info="not_deleted" x="993" y="0"/>
+</item>
+<item historyLabel="Visualize.cpp" index="2">
+<position info="not_deleted" x="1" y="0"/>
+</item>
+<item historyLabel="Shape.cpp" index="0">
+<position info="not_deleted" x="1397" y="0"/>
+</item>
+<item historyLabel="Visualize.cpp" index="2">
+<position info="not_deleted" x="1" y="0"/>
+</item>
+<item historyLabel="Shape.cpp" index="0">
+<position info="not_deleted" x="1397" y="0"/>
+</item>
+<item historyLabel="Shape.cpp" index="0">
+<position info="not_deleted" x="6094" y="0"/>
+</item>
+<item historyLabel="Shape.cpp" index="0">
+<position info="not_deleted" x="1030" y="0"/>
+</item>
+<item historyLabel="Shape.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="Shape.cpp" index="0">
+<position info="not_deleted" x="1209" y="0"/>
+</item>
+<item historyLabel="Shape.cpp" index="0">
+<position info="not_deleted" x="1144" y="0"/>
+</item>
+<item active="true" historyLabel="Shape.cpp" index="0">
+<position info="not_deleted" x="1172" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -240,6 +295,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Visualize.cpp" tooltip="Shape/src/Visualize.cpp">
+<persistable path="/Shape/src/Visualize.cpp"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="storage_adaptors.hpp" tooltip="Shape/src/storage_adaptors.hpp">
 <persistable path="/Shape/src/storage_adaptors.hpp"/>
 </file>
